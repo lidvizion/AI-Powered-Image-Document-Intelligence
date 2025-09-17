@@ -1,0 +1,105 @@
+{
+  "success": true,
+  "jobId": "mock-job-12345",
+  "task": "multi-modal",
+  "results": {
+    "detections": [
+      {
+        "id": "det-1",
+        "class": "lid",
+        "score": 0.95,
+        "box": [120, 80, 150, 150]
+      },
+      {
+        "id": "det-2", 
+        "class": "container",
+        "score": 0.88,
+        "box": [300, 200, 200, 180]
+      },
+      {
+        "id": "det-3",
+        "class": "lid",
+        "score": 0.92,
+        "box": [50, 300, 120, 120]
+      }
+    ],
+    "instances": [
+      {
+        "id": "inst-1",
+        "class": "lid",
+        "score": 0.89,
+        "polygon": [[125, 85], [265, 85], [270, 225], [120, 230]]
+      },
+      {
+        "id": "inst-2",
+        "class": "container",
+        "score": 0.84,
+        "polygon": [[305, 205], [495, 205], [500, 375], [300, 380]]
+      }
+    ],
+    "labels": [
+      {
+        "id": "label-1",
+        "class": "plastic_container",
+        "score": 0.76,
+        "attributes": {
+          "material": "plastic",
+          "condition": "good",
+          "color": "blue"
+        }
+      },
+      {
+        "id": "label-2", 
+        "class": "metal_lid",
+        "score": 0.82,
+        "attributes": {
+          "material": "metal",
+          "condition": "worn",
+          "color": "silver"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "ocr-1",
+        "text": "RECYCLING CODE 1",
+        "score": 0.94,
+        "box": [40, 120, 220, 160]
+      },
+      {
+        "id": "ocr-2",
+        "text": "500ML",
+        "score": 0.87,
+        "box": [350, 250, 420, 280]
+      }
+    ],
+    "summary": {
+      "totalDetections": 3,
+      "totalInstances": 2,
+      "totalLabels": 2,
+      "totalBlocks": 2,
+      "processingTime": 1850,
+      "confidence": {
+        "average": 0.88,
+        "min": 0.76,
+        "max": 0.95
+      }
+    }
+  },
+  "logs": [
+    "Initializing multi-modal processing...",
+    "Loading image data...",
+    "Image dimensions: 800x600",
+    "Running object detection model...",
+    "Detected 5 candidate objects",
+    "Filtering by confidence threshold (0.8)...",
+    "Found 3 objects with confidence > 0.8",
+    "Running instance segmentation...",
+    "Generated 2 instance masks",
+    "Running classification model...",
+    "Classification complete: 2 material types identified",
+    "Running OCR analysis...",
+    "Extracted 2 text blocks",
+    "Processing finished successfully"
+  ]
+}

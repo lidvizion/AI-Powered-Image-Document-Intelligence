@@ -1,0 +1,65 @@
+{
+  "name": "Lid Vizion Demo (SIM)",
+  "slug": "lid-vizion-sim",
+  "task": "multi-modal",
+  "version": "1.0.0",
+  "framework": "Next.js 14",
+  "inputs": ["image", "video"],
+  "outputs": ["detections", "instances", "labels", "blocks"],
+  "demo": { 
+    "sample_media": ["/sample/sample-image.jpg"],
+    "mock_contracts": {
+      "detection": { "detections": [{"class": "lid", "score": 0.93, "box": [120, 80, 260, 210]}] },
+      "segmentation": { "instances": [{"class": "container", "score": 0.88, "polygon": [[34, 50], [60, 48], [70, 80]]}] },
+      "classification": { "labels": [{"class": "plastic_container", "score": 0.76}] },
+      "ocr": { "blocks": [{"text": "RECYCLING CODE 1", "box": [40, 120, 220, 160]}] }
+    }
+  },
+  "features": [
+    "Drag & drop file upload with sample picker",
+    "Multi-modal canvas visualization (boxes, polygons, labels, OCR)",
+    "Comprehensive results panel for all contract types",
+    "Collapsible log tray with request/response inspection",
+    "Responsive design for mobile and desktop",
+    "Accessibility features (alt text, keyboard navigation, focus styles)",
+    "Environment toggle (simulation/live API)",
+    "Mock data support for development",
+    "Processing logs and error handling"
+  ],
+  "tech_stack": {
+    "frontend": "Next.js 14 + TypeScript + Tailwind CSS",
+    "upload": "react-dropzone",
+    "canvas": "HTML5 Canvas API with multi-overlay support",
+    "styling": "Tailwind CSS with dark mode support"
+  },
+  "api": {
+    "simulation_mode": {
+      "enabled_when": "NEXT_PUBLIC_LV_API_URL is not set",
+      "mock_data": "/public/mock/response.json",
+      "simulated_latency": "600ms"
+    },
+    "live_mode": {
+      "enabled_when": "NEXT_PUBLIC_LV_API_URL is set",
+      "endpoint": "${NEXT_PUBLIC_LV_API_URL}/v1/run",
+      "auth": "x-api-key header with NEXT_PUBLIC_LV_API_KEY"
+    }
+  },
+  "contracts": {
+    "detection": "Bounding box object detection",
+    "segmentation": "Instance segmentation with polygons", 
+    "classification": "Image/object classification with attributes",
+    "ocr": "Optical character recognition with text extraction"
+  },
+  "file_structure": {
+    "/public/sample/": "Sample media files for testing",
+    "/public/mock/": "Mock JSON responses for simulation",
+    "/src/components/": "React components (Upload, Canvas, ResultsPanel, RunButton, LogTray)",
+    "/src/lib/lv.ts": "Environment toggle and API client",
+    "/src/app/": "Next.js 14 app directory with main page"
+  },
+  "supported_formats": {
+    "images": ["PNG", "JPG", "JPEG", "GIF", "WebP"],
+    "videos": ["MP4", "WebM", "MOV"]
+  },
+  "note": "Built with Cursor in simulation mode. No external API calls in demo mode."
+}
