@@ -1,10 +1,10 @@
 {
-  "name": "ai-powered-image-document-intelligence",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
     "next": "15.5.3",
@@ -12,3 +12,4 @@
     "react-dom": "19.1.0"
   }
 }
+
