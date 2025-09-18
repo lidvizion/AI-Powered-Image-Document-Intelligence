@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { isLive, runJob } from "@/lib/lv";
+import { isLive, runJob } from "../../lib/lv";
 
 type OCRBox = [number, number, number, number];
 type OCRBlock = { text: string; box: OCRBox };
