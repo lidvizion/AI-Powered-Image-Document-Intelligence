@@ -1,0 +1,3 @@
+{ "name":"OCR — Receipts (Sim)", "slug":"ocr-receipts-sim", "task":"ocr",
+  "inputs":["image"], "outputs":["blocks"],
+  "demo": { "sample_media":["/sample/receipt1.png"] } }
